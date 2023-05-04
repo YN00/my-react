@@ -4,8 +4,8 @@ services:
   react:
     container_name: react
     build:
-      context: .
-      dockerfile: Dockerfile
+      context: react
+      dockerfile: react/Dockerfile
     volumes:
       - ".:/app"
     ports:
@@ -18,8 +18,8 @@ services:
   nginx:
     container_name: nginx
     build:
-      context: .
-      dockerfile: nginx/dockerFile
+      context: react
+      dockerfile: react/nginx/dockerFile
     networks:
       - react
     environment:
