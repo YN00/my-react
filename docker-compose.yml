@@ -26,6 +26,18 @@ services:
       - TZ=Asia/Seoul
     depends_on:
       - react
+  db:
+    image: mysql
+    command:
+      - --default-authentication-plugin=mysql_native_password
+    restart: 'always'
+    environment:
+      MYSQL_ROOT_PASSWORD: xiiulakalkjjqw7190
+  adminer:
+    image: adminer
+    restart: 'always'
+    ports:
+      - "8001:8080"
 
 networks:
   react:
