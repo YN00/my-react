@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  react:
+    container_name: react
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/app"
+    ports:
+      - "9000:3001" # 외부:내부
+    environment:
+      - NODE_ENV=development
+      - TZ=Asia/Seoul
+    networks:
+      - react
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: nginx/dockerFile
+    networks:
+      - react
+    environment:
+      - TZ=Asia/Seoul
+    depends_on:
+      - react
+
+networks:
+  react:

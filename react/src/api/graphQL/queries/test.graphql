@@ -1,0 +1,8 @@
+query getTest {
+    getTest {
+        testId
+        testName
+        testNumber
+        testEmail
+    }
+}

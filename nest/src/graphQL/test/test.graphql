@@ -1,0 +1,10 @@
+type Test {
+    testId: String
+    testName: String
+    testNumber: String
+    testEmail: String
+}
+
+type Query {
+    getTest: [Test]
+}
