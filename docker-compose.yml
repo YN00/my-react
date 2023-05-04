@@ -5,7 +5,7 @@ services:
     container_name: react
     build:
       context: react
-      dockerfile: react/Dockerfile
+      dockerfile: ../react/Dockerfile
     volumes:
       - ".:/app"
     ports:
@@ -19,7 +19,7 @@ services:
     container_name: nginx
     build:
       context: react
-      dockerfile: react/nginx/dockerFile
+      dockerfile: ../react/nginx/dockerFile
     networks:
       - react
     environment:
@@ -33,6 +33,8 @@ services:
     restart: 'always'
     environment:
       MYSQL_ROOT_PASSWORD: xiiulakalkjjqw7190
+    ports:
+      - "3306:3306"
   adminer:
     image: adminer
     restart: 'always'
